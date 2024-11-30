@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+
+
+int main(viod)
+{
+	//1,初始话窗口
+	InitWindow(640, 480, u8"森林冰火人");
+
+	//帧率 60
+	SetTargetFPS(120);
+
+	//加载图片
+	Texture2D bgTex = LoadTexture("Resource/游戏关卡1.png");
+	if (!IsTextureValid(bgTex)) {
+		printf("图片加载失败\n");
+	}
+
+	int cnt = 0;
+	//2,游戏主循环（键盘、鼠标、手柄...)
+	while (!WindowShouldClose())
+	{
+		cnt++;
+		printf("%d\n", cnt);
+		BeginDrawing();           //开始绘制
+		ClearBackground(WHITE);   //清屏
+		printf("fps:%d\n", GetFPS()); //绘制帧率
+		EndDrawing();             //结束绘制
+	}
+}
